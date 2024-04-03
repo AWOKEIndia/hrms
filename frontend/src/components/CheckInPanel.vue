@@ -35,7 +35,7 @@
 							{{ dayjs().format("D MMM, YYYY") }}
 						</div>
 					</div>
-					<div v-if="locationStatus">
+					<div v-if="locationStatus" class="rounded border-4 translate-z-0 block overflow-hidden w-350 h-170">
 						<span class="font-medium text-gray-500 text-sm">
 							{{ locationStatus }}
 						</span>
