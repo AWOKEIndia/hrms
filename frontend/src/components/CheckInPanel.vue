@@ -47,7 +47,7 @@
 							scrolling="no"
 							marginheight="0"
 							marginwidth="0"
-							:src="`https://maps.google.com/maps?q=${latitude},${longitude}&hl=en&z=15&amp;output=embed`"
+							:src="`https://maps.google.com/maps?q=${latitude},${longitude}&hl=en&z=17&amp;output=embed`"
 						>
 						</iframe>
 					</div>
