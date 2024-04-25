@@ -55,6 +55,7 @@
 						variant="solid"
 						class="w-full py-5 text-sm"
 						@click="submitLog(nextAction.action)"
+						@disabled="!latitude || !longitude"
 					>
 						Confirm {{ nextAction.label }}
 					</Button>
