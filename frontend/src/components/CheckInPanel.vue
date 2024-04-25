@@ -166,6 +166,7 @@ const submitLog = (logType) => {
 			employee: employee.data.name,
 			log_type: logType,
 			time: checkinTimestamp.value,
+			geolocation: `{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[${longitude.value},${latitude.value}]}}]}`
 		},
 		{
 			onSuccess() {
