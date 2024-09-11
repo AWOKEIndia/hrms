@@ -44,9 +44,14 @@
 			</div>
 
 			<template v-if="settings.data?.allow_geolocation_tracking">
-				<span v-if="locationStatus" class="font-medium text-gray-500 text-sm">
-					{{ locationStatus }}
-				</span>
+				<div class="flex gap-2 justify-between items-center w-full">
+					<span v-if="locationStatus" class="font-medium text-gray-500 text-sm">
+						{{ locationStatus }}
+					</span>
+					<Button :variant="'outline'" size="sm" label="Refresh" @click="fetchLocation" icon="refresh-cw" :disabled="false">
+						Refresh
+					</Button>
+				</div>
 
 				<div class="rounded border-4 translate-z-0 block overflow-hidden w-full h-170">
 					<iframe
@@ -63,9 +68,17 @@
 				</div>
 			</template>
 
-			<Button variant="solid" class="w-full py-5 text-sm" @click="submitLog(nextAction.action)">
-				Confirm {{ nextAction.label }}
-			</Button>
+			<template v-if="settings.data?.allow_geolocation_tracking">
+				<Button variant="solid" class="w-full py-5 text-sm" @click="submitLog(nextAction.action)" 
+					:disabled="(latitude == 0 && longitude == 0)">
+					Confirm {{ nextAction.label }}
+				</Button>
+			</template>
+			<template v-else>
+				<Button variant="solid" class="w-full py-5 text-sm" @click="submitLog(nextAction.action)">
+					Confirm {{ nextAction.label }}
+				</Button>
+			</template>
 		</div>
 	</ion-modal>
 </template>
